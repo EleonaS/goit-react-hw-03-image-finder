@@ -8,12 +8,13 @@ const WraperButton = styled.div`
 
 const StyledButton = styled.button`
   padding: 8px 16px;
-  margin: 10px 0;
-  border-radius: 5px;
-  background-color: blue;
+  border-radius: 2px;
+  background-color: #3f51b5;
+  transition: all 250ms
+    cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
   display: inline-block;
-  color: tomato;
+  color: #fff;
   border: 0;
   text-decoration: none;
   cursor: pointer;
