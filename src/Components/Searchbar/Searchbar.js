@@ -25,6 +25,10 @@ export class Searchbar extends Component {
     query: '',
   };
 
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+  };
+
   handleInputChange = e => {
     const query = e.currentTarget.value;
     this.setState({ query });
@@ -86,8 +90,3 @@ export class Searchbar extends Component {
     );
   }
 }
-
-Searchbar.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-  //trim: PropTypes.func.isRequired,
-};

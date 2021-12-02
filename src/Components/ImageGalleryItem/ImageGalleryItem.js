@@ -6,11 +6,9 @@ const ImageGalleryItem = ({
   alt = '',
   webformatURL,
   onClick,
-  id,
 }) => (
   <>
     <Image
-      id={id}
       src={webformatURL}
       alt={alt}
       onClick={onClick}
@@ -20,13 +18,10 @@ const ImageGalleryItem = ({
 
 ImageGalleryItem.propTypes = {
   image: PropTypes.shape({
-    id: PropTypes.number.isRequired,
     alt: PropTypes.string.isRequired,
-    //largeImageURL: PropTypes.string.isRequired,
     webformatURL:
       PropTypes.string.isRequired,
-    getLargeImageURL:
-      PropTypes.func.isRequired,
+    onClick: PropTypes.func.isRequired,
   }),
 };
 

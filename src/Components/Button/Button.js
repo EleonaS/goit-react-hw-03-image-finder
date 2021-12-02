@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import {
   StyledButton,
   WraperButton,
@@ -17,7 +18,6 @@ const Button = ({ onClick }) => (
 );
 Button.propTypes = {
   onClick: PropTypes.func.isRequired,
-  //fetchImages: PropTypes.func.isRequired,
 };
 
 export { Button };

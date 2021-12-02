@@ -29,14 +29,18 @@ class App extends Component {
       prevState.searchQuery;
     const nextQuery =
       this.state.searchQuery;
-    if (prevQuery !== nextQuery) {
+    const prevPage = prevState.page;
+    const nextPage = this.state.page;
+    if (
+      prevQuery !== nextQuery ||
+      prevPage !== nextPage
+    ) {
       this.fetchImages();
-
-      window.scrollTo({
+      /*window.scrollTo({
         top: document.documentElement
           .scrollHeight,
         behavior: 'smooth',
-      });
+      });*/
     }
   }
 
@@ -84,8 +88,6 @@ class App extends Component {
                   ...prevState.images,
                   ...hits,
                 ],
-                page:
-                  prevState.page + 1,
               }),
             )
           : toast.warning(
@@ -99,7 +101,18 @@ class App extends Component {
         this.setState({
           isLoading: false,
         });
+        window.scrollTo({
+          top: document.documentElement
+            .scrollHeight,
+          behavior: 'smooth',
+        });
       });
+  };
+  ///
+  handleLoadMore = () => {
+    this.setState(prevPage => ({
+      page: prevPage.page + 1,
+    }));
   };
 
   render() {
@@ -133,7 +146,9 @@ class App extends Component {
         {images.length > 11 && (
           <Button
             type="button"
-            onClick={this.fetchImages}
+            onClick={
+              this.handleLoadMore
+            }
           />
         )}
 
